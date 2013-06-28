@@ -82,7 +82,7 @@ class ObjectPersister implements ObjectPersisterInterface
     public function deleteById($id)
     {
         try {
-            $this->type->deleteById($document->getId());
+            $this->type->deleteById($id);
         } catch (NotFoundException $e) {
             // ignore failed deletions
         } 
