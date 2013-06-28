@@ -48,11 +48,6 @@ class ObjectPersister implements ObjectPersisterInterface
     public function replaceOne($object)
     {
         $document = $this->transformToElasticaDocument($object);
-        try {
-            $this->type->deleteById($document->getId());
-        } catch (NotFoundException $e) {
-            // ignore failed deletions
-        } 
         $this->type->addDocument($document);
     }
 
